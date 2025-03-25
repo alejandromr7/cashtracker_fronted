@@ -1,11 +1,31 @@
 'use client'
 
+import { register } from "@/actions/create-account-action";
+import { useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
+
 export default function RegisterForm() {
+
+  const ref = useRef<HTMLFormElement>(null)
+  const [state, dispatch] = useFormState(register, {
+    errors: [],
+    success: ''
+  })
+
+  useEffect(() => {
+    if (state.success) {
+      ref.current?.reset();
+    }
+  }, [state])
+
+  console.log(state)
 
   return (
     <form
+      ref={ref}
       className="mt-14 space-y-5"
       noValidate
+      action={dispatch}
     >
       <div className="flex flex-col gap-2">
         <label

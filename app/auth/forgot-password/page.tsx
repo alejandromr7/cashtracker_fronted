@@ -12,9 +12,7 @@ export default function forgotPasswordPage() {
     <div className=''>
       <h1 className='font-black text-6xl text-purple-950'>Olvide mi Password</h1>
       <p className='text-3xl font-bold'>y controla tus {' '} <span className='text-amber-500'>finanzas</span></p>
-
       <ForgotPasswordForm />
-
 
       <nav className="mt-10 flex flex-col space-y-4">
         <Link className='text-center text-gray-600' href='/auth/login'>¿Ya tienes una cuenta? {' '}
