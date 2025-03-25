@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '',
-  description: ''
+  title: 'Cashtracker - Panel de Administracion',
+  description: 'Cashtracker - Panel de Administracion'
 }
 
 export default async function Page() {
@@ -20,7 +20,7 @@ export default async function Page() {
         </p>
       </div>
       <Link
-        href={'/admin/budget/new'}
+        href={'/admin/budgets/new'}
         className='bg-amber-500 p-2 rounded-lg text-white font-bold w-full md:w-auto text-center'
       >
         Crear Presupuesto

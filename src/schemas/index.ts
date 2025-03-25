@@ -46,3 +46,13 @@ export type User = z.infer<typeof UserSchema>
 export const ErrorSchema = z.string();
 export const SuccessSchema = z.string();
 export const TokenSchema = z.string().length(6, { message: 'The token must be 6' });
+
+export const DraftBudgetSchema = z.object({
+  name: z.string()
+    .min(1, { message: 'El Nombre del presupuesto es obligatorio' }),
+  amount: z.coerce.
+    number({ message: 'Cantidad no válida' })
+    .min(1, { message: 'Cantidad no válida' }),
+})
+
+
