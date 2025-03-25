@@ -12,3 +12,4 @@ export const RegisterSchema = z.object({
 
 export const ErrorSchema = z.string();
 export const SuccessSchema = z.string();
+export const TokenSchema = z.string().length(6, { message: 'The token must be 6' });

@@ -43,8 +43,6 @@ export async function register(prevState: ActionStateType, formData: FormData) {
 
   const json = await req.json()
 
-  console.log(json)
-
   if (!req.ok) {
     const error = ErrorSchema.parse(json)
     return {

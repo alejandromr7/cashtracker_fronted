@@ -1,6 +1,32 @@
 'use client'
 
+import { register } from "@/actions/create-account-action";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useFormState } from "react-dom";
+import { toast } from "react-toastify";
+
 export default function LoginForm() {
+
+  // const router = useRouter();
+
+  // const [state, dispatch] = useFormState(register, {
+  //   errors: [],
+  //   success: ''
+  // });
+
+  // useEffect(() => {
+  //   console.log(state)
+  //   if (state.success) {
+  //     toast.success(state.success)
+  //   }
+
+  //   if (state.errors) {
+  //     state.errors.forEach(error => {
+  //       toast.error(error);
+  //     })
+  //   }
+  // }, [state])
 
   return (
     <>

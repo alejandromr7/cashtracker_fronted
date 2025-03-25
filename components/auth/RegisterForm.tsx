@@ -3,6 +3,7 @@
 import { register } from "@/actions/create-account-action";
 import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
+import { toast } from "react-toastify";
 
 export default function RegisterForm() {
 
@@ -18,7 +19,17 @@ export default function RegisterForm() {
     }
   }, [state])
 
-  console.log(state)
+  useEffect(() => {
+    if (state.success) {
+      toast.success(state.success)
+    }
+
+    if (state.errors) {
+      state.errors.forEach(error => {
+        toast.error(error);
+      })
+    }
+  }, [state])
 
   return (
     <form
