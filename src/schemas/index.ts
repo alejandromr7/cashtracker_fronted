@@ -64,6 +64,7 @@ export const BudgetAPIResponseSchema = z.object({
   updatedAt: z.string()
 })
 
+export const PasswordValidationSchema = z.string();
 export const BudgetsAPIResponseSchema = z.array(BudgetAPIResponseSchema)
 
 
