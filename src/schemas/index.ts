@@ -64,7 +64,16 @@ export const BudgetAPIResponseSchema = z.object({
   updatedAt: z.string()
 })
 
-export const PasswordValidationSchema = z.string();
+
+
+export const DraftExpenseSchema = z.object({
+  name: z.string()
+    .min(1, { message: 'El Nombre del gasto es obligatorio' }),
+  amount: z.coerce.
+    number({ message: 'Cantidad no válida' })
+    .min(1, { message: 'Cantidad no válida' })
+})
+export const PasswordValidationSchema = z.string().min(1, { message: 'La contrase;a es obligatoria' })
 export const BudgetsAPIResponseSchema = z.array(BudgetAPIResponseSchema)
 
 

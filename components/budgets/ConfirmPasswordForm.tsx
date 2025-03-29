@@ -75,7 +75,10 @@ export default function ConfirmPasswordForm() {
           />
           <button
             className="bg-amber-500 hover:bg-amber-600 w-full p-3 rounded-lg text-white font-black cursor-pointer transition-colors"
-            onClick={closeModal}
+            onClick={(event) => {
+              event.preventDefault(); // Previene la ejecución de action (dispatch)
+              closeModal();
+            }}
           >Cancelar</button>
         </div>
       </form>

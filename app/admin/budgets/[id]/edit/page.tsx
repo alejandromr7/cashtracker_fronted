@@ -1,11 +1,7 @@
 import EditBudgetForm from '@/components/budgets/EditBudgetForm';
-import getToken from '@/src/auth/token';
-import { BudgetAPIResponseSchema } from '@/src/schemas';
 import { getBudget } from '@/src/services/budgets';
 import type { Metadata } from 'next'
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { cache } from 'react';
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const budget = await getBudget(params.id)

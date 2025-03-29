@@ -17,6 +17,7 @@ export const getBudget = cache(async (budgetId: string) => {
   if (!req.ok) {
     notFound();
   }
+
   const budget = BudgetAPIResponseSchema.parse(json);
   return budget;
 })

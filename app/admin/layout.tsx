@@ -9,6 +9,10 @@ export default async function AdminLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+  const { user } = await verifySession();
+
   return (
     <>
       <header className='bg-purple-950 py-5'>
@@ -18,6 +22,8 @@ export default async function AdminLayout({
               <Logo />
             </Link>
           </div>
+
+          <AdminMenu user={user} />
         </div>
       </header>
       <section className='max-w-5xl mx-auto mt-20 p-3 py-10'>
