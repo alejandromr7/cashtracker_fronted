@@ -13,6 +13,7 @@ export const getBudget = cache(async (budgetId: string) => {
   });
 
   const json = await req.json();
+  console.log(json);
 
   if (!req.ok) {
     notFound();

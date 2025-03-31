@@ -42,6 +42,7 @@ export async function authenticate(prevState: ActionStateType, formData: FormDat
 
   if (!req.ok) {
     const error = ErrorSchema.parse(json)
+    console.log(error)
     return {
       errors: [error],
       success: ''

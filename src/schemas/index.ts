@@ -55,16 +55,25 @@ export const DraftBudgetSchema = z.object({
     .min(1, { message: 'Cantidad no válida' }),
 })
 
+
+export const ExpenseSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  amount: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+  budgetId: z.number()
+})
+
 export const BudgetAPIResponseSchema = z.object({
   id: z.number(),
   name: z.string(),
   amount: z.string(),
   userId: z.number(),
   createdAt: z.string(),
-  updatedAt: z.string()
+  updatedAt: z.string(),
+  expenses: z.array(ExpenseSchema)
 })
-
-
 
 export const DraftExpenseSchema = z.object({
   name: z.string()
@@ -73,8 +82,12 @@ export const DraftExpenseSchema = z.object({
     number({ message: 'Cantidad no válida' })
     .min(1, { message: 'Cantidad no válida' })
 })
+
+
+
 export const PasswordValidationSchema = z.string().min(1, { message: 'La contrase;a es obligatoria' })
-export const BudgetsAPIResponseSchema = z.array(BudgetAPIResponseSchema)
+export const BudgetsAPIResponseSchema = z.array(BudgetAPIResponseSchema.omit({ expenses: true }))
 
 
 export type Budget = z.infer<typeof BudgetAPIResponseSchema>
+export type Expense = z.infer<typeof ExpenseSchema>
